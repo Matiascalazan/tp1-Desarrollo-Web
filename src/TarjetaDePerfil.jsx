@@ -6,8 +6,9 @@ function TarjetaDePerfil({ usuario }) {
             border: "1px solid #ccc",
             borderRadius: "10px",
             padding: "15px",
-            margin: "10px",
-            maxWidth: "300px"
+            margin: "10px auto",
+            maxWidth: "300px",
+            textAlign: "center"
         }}>
             <h2>{usuario.nombre}</h2>
             <p><strong>Profesión:</strong> {usuario.profesion}</p>
