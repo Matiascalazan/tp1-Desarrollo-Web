@@ -1,13 +1,8 @@
-import React from "react";
-
-function Titulo() {
-    return (
-        <div>
-            <h1><u>Mi Perfil</u></h1>
-            <p>Bienvenido al TP N° 2 - Practica con React</p>
-            <h1>Tarjeta de Perfil</h1>
-        </div>
-    );
+export default function Titulo({ texto, subtitulo }) {
+  return (
+    <header style={{ marginBottom: 16 }}>
+      <h1>{texto}</h1>
+      {subtitulo && <p style={{ opacity: 0.75 }}>{subtitulo}</p>}
+    </header>
+  );
 }
-
-export default Titulo;
