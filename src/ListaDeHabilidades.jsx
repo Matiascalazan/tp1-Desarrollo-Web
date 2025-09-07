@@ -1,14 +1,20 @@
-export default function ListaDeHabilidades({ habilidades = [] }) {
-  if (!habilidades.length) return <p>Sin habilidades cargadas.</p>;
+import React from "react";
+function ListaDeHabilidades({ habilidades }) {
 
-  return (
-    <section>
-      <h2>Habilidades</h2>
-      <ul>
-        {habilidades.map((h, i) => (
-          <li key={i}>{h}</li>
-        ))}
-      </ul>
-    </section>
-  );
+    return (
+        <div>
+            <h3>Habilidades</h3>
+            {habilidades.length > 0 ? (
+                <ul>
+                    {habilidades.map((habilidad, index) => (
+                        <li key={index}>{habilidad}</li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No hay habilidades</p>
+            )}
+        </div>
+    );
 }
+
+export default ListaDeHabilidades;

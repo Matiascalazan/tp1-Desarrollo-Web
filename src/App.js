@@ -1,40 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
-import Titulo from './Titulo';
-import TarjetaDePerfil from './TarjetaDePerfil';
-import ListaDeHabilidades from './ListaDeHabilidades';
+import React, { useState } from "react";
+import Titulo from "./Titulo";
+import TarjetaDePerfil from "./TarjetaDePerfil";
+import ListaDeHabilidades from "./ListaDeHabilidades";
 
 function App() {
   const usuario = {
-    nombre: "Matías Calazan",
-    edad: 27,
-    profesion: "Técnico Electromecanico / Estudiante de Análisis de Sistemas",
-    ubicacion: "Aguas del Norte - Cafayate"
+    nombre: "Calazan, Matias",
+    profesion: "Operario en Aguas del Norte-Cafayate",
+    edad: 27
   };
-
-  const habilidades = [
-    "Electricidad y tableros, Mecanica, Soldadura",
-    "Capacidad de adaptarme a cualquier entorno laboral",
-    "Aprendiendo Git y GitHub",
-    "Aprendiendo distintos lenguajes de programación",
-    "Análisis crítico y resolución de problemas"
-  ];
+  const [mostrarLista, setMostrarLista] = useState(true);
+  const toggleLista = () => {
+    setMostrarLista(!mostrarLista);
+  };
+  const habilidades = ["Adaptabilidad rapida a cualquier entorno de trabajo", "Tecnicas y practicas (Electricidad, Mecanica, Soldadura)", "Pensamiento critico", "Actitud de aprendisaje constante y orientacion a resolver problemas reales"];
 
   return (
-    <div className="App" style={{ maxWidth: 800, margin: "40px auto", padding: "0 16px" }}>
-      <Titulo
-        texto="Mi portfolio simple en React"
-        subtitulo="TP - Desarrollo Web"
-      />
+    <div className="App">
+      <Titulo />
+      <TarjetaDePerfil usuario={usuario} />
 
-      <TarjetaDePerfil
-        nombre={usuario.nombre}
-        edad={usuario.edad}
-        profesion={usuario.profesion}
-        ubicacion={usuario.ubicacion}
-      />
-
-      <ListaDeHabilidades habilidades={habilidades} />
+      <button onClick={toggleLista}>
+        {mostrarLista ? "Ocultar habilidades" : "Mostrar habilidades"}
+      </button>
+      {mostrarLista && <ListaDeHabilidades habilidades={habilidades} />}
     </div>
   );
 }
